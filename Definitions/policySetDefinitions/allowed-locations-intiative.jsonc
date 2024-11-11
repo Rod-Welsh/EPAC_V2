@@ -15,7 +15,8 @@
           "defaultValue": [
             "australiaeast",
             "australiasoutheast",
-            "australiacentral"
+            "australiacentral",
+            "Central US"
           ]
         }
       },

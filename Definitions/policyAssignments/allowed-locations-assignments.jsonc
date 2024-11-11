@@ -12,7 +12,7 @@
     },
     "parameters": {
         "AllowedLocations": [
-            "australiaeast", "australiasoutheast", "australiacentral"
+            "australiaeast", "australiasoutheast", "australiacentral", "Central US"
         ]
     },
     "scope": {
