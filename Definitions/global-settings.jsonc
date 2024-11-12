@@ -17,7 +17,7 @@
             "pacSelector": "epac-prd",
             "cloud": "AzureCloud",
             "tenantId": "12ba85d3-62c8-4651-b698-e82c9e975f71",
-            "deploymentRootScope": "/providers/Microsoft.Management/managementGroups/mg-welsh-ord-prd",
+            "deploymentRootScope": "/providers/Microsoft.Management/managementGroups/mg-welsh-org-prd",
             "desiredState": {
                 "strategy": "ownedOnly",
                 "keepDfcSecurityAssignments": false
