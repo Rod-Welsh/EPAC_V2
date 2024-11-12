@@ -12,11 +12,11 @@
     },
     "parameters": {
         "AllowedLocations": [
-            "australiaeast", "australiasoutheast", "australiacentral", "Central US"
+            "australiaeast", "australiasoutheast", "australiacentral", "CentralUS"
         ]
     },
     "scope": {
-        "pac-dev": [
+        "epac-dev": [
             "/providers/Microsoft.Management/managementGroups/mg-welsh-org-epac"
         ]
     }
