@@ -33,27 +33,13 @@ jobs:
     name: Deploy epac-dev Policy Changes
     needs: plan
     if: needs.plan.outputs.deployPolicyChanges == 'yes'
-    runs-on: ubuntu-latest
-    steps:
-      - uses: trstringer/manual-approval@v1
-        with:
-          secret: ${{ github.TOKEN }}
-          approvers: 'Rod-Welsh'
-          minimum-approvals: 1
-          issue-title: "Deploying EPAC-DEV Policy Changes"
-          issue-body: "Please review and approve the changes to be deployed to EPAC-DEV"
-          exclude-workflow-initiator-as-approver: false
-          additional-approved-words: ''
-          additional-denied-words: ''
-
-      - name: Deploy Policy Changes
-        uses: ./.github/workflows/deploy-policy.yml
-        with:
-          pacEnvironmentSelector: epac-dev
-          planGitHubEnvironment: EPAC-DEV
-          PAC_INPUT_FOLDER: ./Output
-          PAC_DEFINITIONS_FOLDER: ./Definitions
-          secrets: inherit
+    uses: ./.github/workflows/deploy-policy.yml
+    with:
+      pacEnvironmentSelector: epac-dev
+      planGitHubEnvironment: EPAC-DEV
+      PAC_INPUT_FOLDER: ./Output
+      PAC_DEFINITIONS_FOLDER: ./Definitions
+    secrets: inherit
 
   deployRoles:
     name: Deploy epac-dev Role Changes
