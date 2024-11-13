@@ -20,8 +20,8 @@ jobs:
     uses: ./.github/workflows/plan.yml
     with:
       pacEnvironmentSelector: epac-prd
-      planGitHubEnvironment: EPAC-DEV
-      PAC_OUTPUT_FOLDER: ./Output
+      planGitHubEnvironment: TENANT-PLAN
+      PAC_OUTPUT_FOLDER: ./Output/prd
       PAC_DEFINITIONS_FOLDER: ./Definitions
     secrets: inherit
 
@@ -32,8 +32,8 @@ jobs:
     uses: ./.github/workflows/deploy-policy.yml
     with:
       pacEnvironmentSelector: epac-prd
-      planGitHubEnvironment: EPAC-DEV
-      PAC_INPUT_FOLDER: ./Output
+      planGitHubEnvironment: TENANT-DEPLOY-POLICY
+      PAC_INPUT_FOLDER: ./Output/prd
       PAC_DEFINITIONS_FOLDER: ./Definitions
     secrets: inherit
 
@@ -44,7 +44,7 @@ jobs:
     uses: ./.github/workflows/deploy-roles.yml
     with:
       pacEnvironmentSelector: epac-prd
-      planGitHubEnvironment: EPAC-DEV
-      PAC_INPUT_FOLDER: ./Output
+      planGitHubEnvironment: TENANT-DEPLOY-ROLES
+      PAC_INPUT_FOLDER: ./Output/prd
       PAC_DEFINITIONS_FOLDER: ./Definitions
     secrets: inherit
