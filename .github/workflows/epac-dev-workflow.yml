@@ -33,13 +33,34 @@ jobs:
     name: Deploy epac-dev Policy Changes
     needs: plan
     if: needs.plan.outputs.deployPolicyChanges == 'yes'
-    uses: ./.github/workflows/deploy-policy.yml
-    with:
-      pacEnvironmentSelector: epac-dev
-      planGitHubEnvironment: EPAC-DEV
-      PAC_INPUT_FOLDER: ./Output
-      PAC_DEFINITIONS_FOLDER: ./Definitions
-    secrets: inherit
+    runs-on: ubuntu-latest
+    steps:
+      - name: Wait for manual approval
+        uses: actions/github-script@v4
+        with:
+          script: |
+            const { Octokit } = require("@octokit/rest");
+            const octokit = new Octokit({ auth: process.env.GITHUB_TOKEN });
+
+            const { data: runs } = await octokit.actions.listWorkflowRuns({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              workflow_id: 'manual-approval.yml',
+              status: 'completed',
+              conclusion: 'success',
+              per_page: 1,
+            });
+            if (runs.length === 0) {
+              throw new Error('No successful manual approval found');
+            }
+      - name: Deploy Policy Changes
+        uses: ./.github/workflows/deploy-policy.yml
+        with:
+          pacEnvironmentSelector: epac-dev
+          planGitHubEnvironment: EPAC-DEV
+          PAC_INPUT_FOLDER: ./Output
+          PAC_DEFINITIONS_FOLDER: ./Definitions
+          secrets: inherit
 
   deployRoles:
     name: Deploy epac-dev Role Changes
