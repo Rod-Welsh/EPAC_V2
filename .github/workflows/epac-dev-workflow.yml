@@ -38,7 +38,7 @@ jobs:
       - uses: trstringer/manual-approval@v1
         with:
           secret: ${{ github.TOKEN }}
-          approvers: user1,user2,org-team1
+          approvers: 'Rod-Welsh'
           minimum-approvals: 1
           issue-title: "Deploying EPAC-DEV Policy Changes"
           issue-body: "Please review and approve the changes to be deployed to EPAC-DEV"
