@@ -35,24 +35,17 @@ jobs:
     if: needs.plan.outputs.deployPolicyChanges == 'yes'
     runs-on: ubuntu-latest
     steps:
-      - name: Wait for manual approval
-        uses: actions/github-script@v4
+      - uses: trstringer/manual-approval@v1
         with:
-          script: |
-            const { Octokit } = require("@octokit/rest");
-            const octokit = new Octokit({ auth: process.env.GITHUB_TOKEN });
+          secret: ${{ github.TOKEN }}
+          approvers: user1,user2,org-team1
+          minimum-approvals: 1
+          issue-title: "Deploying EPAC-DEV Policy Changes"
+          issue-body: "Please review and approve the changes to be deployed to EPAC-DEV"
+          exclude-workflow-initiator-as-approver: false
+          additional-approved-words: ''
+          additional-denied-words: ''
 
-            const { data: runs } = await octokit.actions.listWorkflowRuns({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              workflow_id: 'manual-approval.yml',
-              status: 'completed',
-              conclusion: 'success',
-              per_page: 1,
-            });
-            if (runs.length === 0) {
-              throw new Error('No successful manual approval found');
-            }
       - name: Deploy Policy Changes
         uses: ./.github/workflows/deploy-policy.yml
         with:
