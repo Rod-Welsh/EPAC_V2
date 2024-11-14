@@ -1,6 +1,6 @@
 {
     "$schema": "https://raw.githubusercontent.com/Azure/enterprise-azure-policy-as-code/main/Schemas/policy-set-definition-schema.json",
-    "name": "Enforce-ALZ-Welsh-Org",
+    "name": "Enforce-Welshorg-ALZ",
     "properties": {
       "displayName": "Enforce policies in the Welsh-Org Landing Zone",
       "description": "Enforce policies in the Welsh-Org Landing Zone.",
@@ -49,7 +49,7 @@
       },
       "policyDefinitions": [
         {
-          "policyDefinitionReferenceId": "Welsh-OrgNotAllowed",
+          "policyDefinitionReferenceId": "Welsh-Org-NotAllowed",
           "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/6c112d4e-5bc7-47ae-a041-ea2d9dccd749",
           "parameters": {
             "effect": {
@@ -61,7 +61,7 @@
           }
         },
         {
-          "policyDefinitionReferenceId": "Welsh-OrgDenyVnetPeering",
+          "policyDefinitionReferenceId": "Welsh-Org-DenyVnetPeering",
           "policyDefinitionName": "Deny-VNET-Peer-Cross-Sub",
           "parameters": {
             "effect": {

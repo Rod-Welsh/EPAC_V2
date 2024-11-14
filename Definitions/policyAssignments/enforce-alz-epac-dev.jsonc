@@ -2,17 +2,24 @@
     "schema" : "https://raw.githubusercontent.com/Azure/enterprise-azure-policy-as-code/main/Schemas/policy-assignment-schema.json",
     "nodeName" : "/root/",
     "definitionEntry" : {
-        "policySetName" : "enforce-welshorg-alz",
+        "policySetName" : "Enforce-Welshorg-ALZ",
         "displayName" : "Enforce Policies in the EPAC Dev Management Group"
     },
     "assignment" : {
         "name" : "enforce-alz-epac-dev",
-        "displayName" : "Enforce ALZ EPAC Dev",
-        "description" : "Enforce policies in the EPAC Dev Management Group"
+        "displayName" : "Enforce Policies in the WelshOrg EPAC Dev Management Group",
+        "description" : ""
     },
     "metedata": {
         "assignedBy": "EPAC",
         "parameterScopes": [
+            "/providers/Microsoft.Management/managementGroups/mg-welsh-org-epac"
+        ]
+    },
+    "overrides": [],
+    "resourceSelectors": [],
+    "scope": {
+        "epac-dev": [
             "/providers/Microsoft.Management/managementGroups/mg-welsh-org-epac"
         ]
     }
