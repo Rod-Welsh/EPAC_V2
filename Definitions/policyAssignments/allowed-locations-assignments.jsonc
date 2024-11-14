@@ -18,9 +18,6 @@
     "scope": {
         "epac-dev": [
             "/providers/Microsoft.Management/managementGroups/mg-welsh-org-epac"
-        ],
-        "epac-prod": [
-            "/providers/Microsoft.Management/managementGroups/mg-welsh-org-epac"
         ]
     }
 }

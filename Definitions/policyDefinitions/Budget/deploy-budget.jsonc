@@ -219,7 +219,7 @@
                 "$schema": "http://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json"
               }
             },
-            "location": "northeurope"
+            "location": "australiaeast"
           },
           "existenceScope": "subscription",
           "deploymentScope": "subscription"
