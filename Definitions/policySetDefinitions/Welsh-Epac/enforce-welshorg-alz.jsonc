@@ -30,7 +30,7 @@
             "Deny",
             "Disabled"
           ],
-          "defaultValue": "Deny",
+          "defaultValue": "Audit",
           "type": "String"
         },
         "effectDenyVnetPeering": {
@@ -43,7 +43,7 @@
             "Deny",
             "Disabled"
           ],
-          "defaultValue": "Deny",
+          "defaultValue": "Audit",
           "type": "String"
         }
       },
